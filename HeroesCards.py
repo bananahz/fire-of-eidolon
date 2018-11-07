@@ -1,5 +1,9 @@
 import Hero as h
+import Tokens as t
 class HeroesCards():
+    at_gem = False
+    at_heart = False
+    at_book = False
     #Hero's name, AP, STR, DEX, INT, move, explore, attack, wait
     #CHECK HERO CLASS FOR ANY TOOLS METHODS YOU MIGHT NEED
     #THIS WILL HELP SAVE TIME
@@ -15,13 +19,24 @@ class HeroesCards():
     carver = h.Hero("Carver", 3, 2, 2, 2, 1, 1, 1, 1, 1)
     aelfric = h.Hero("Aelfric", 3, 1, 2, 3, 1, 1, 1, 1, 1)
     sirus = h.Hero("Sirus", 3, 3, 2, 1, 1, 1, 1, 1, 1)
-
-
-
-
-
-
-
+    #Send the hero attributes for scrolls, keys, and picks here
+    def specialDoorTokens(self, amt_of_scroll, amt_of_key, amt_of_pick, at_gem, at_heart, at_book):
+        tokens = t.Tokens(amt_of_scroll, amt_of_key, amt_of_pick)
+        self.at_gem = at_gem
+        self.at_heart = at_heart
+        self.at_book = at_book
+        if(at_gem == True and tokens.canBreakGem()):
+            tokens.state_of_gem = tokens.broken_gem
+        else:
+            tokens.state_of_gem = tokens.gem
+        if (at_heart == True and tokens.canBreakHeart()):
+            tokens.state_of_heart = tokens.broken_heart
+        else:
+            tokens.state_of_heart = tokens.heart
+        if (at_book == True and tokens.canBreakBook()):
+            tokens.state_of_book = tokens.broken_book
+        else:
+            tokens.state_of_book = tokens.book
 
 
 
