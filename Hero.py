@@ -14,33 +14,45 @@ class Hero(object):
         self.exchange = exchange
         self.attack = attack
         self.wait = wait
-
+    #For when the player MOVES INTO A NEW ROOM
     def moved(self):
         self.amt_of_ap -= self.move
+    #For when the player exchanges a material with another player
     def exchanged(self):
         self.amt_of_ap -= self.exchange
+    #For when the player attacks a cultist
     def attacked(self):
         self.amt_of_ap -= self.attack
+    #For when player skips their turn
     def waited(self):
         self.amt_of_ap -= self.wait
+    #For when the player PUTS DOWN A NEW ROOM
     def explored(self):
         self.amt_of_ap -= self.explore
+    #For when play gets up after being kicked from a cultist destroyed room
     def getup(self):
         self.amt_of_ap-=1
+    #Returns all attributes
     def allAttri(self):
         return ("Name: "+str(self.name)+"\nAP: "+str(self.amt_of_ap)+"\nSTR: "+str(self.num_of_str)+"\nDEX: "+str(self.num_of_dex)+"\nINT: "+str(self.num_of_int)+"\nMove: "+str(self.move)+"\nExplore: "+str(self.explore)+"\nExchange: "+str(self.exchange)+"\nAttack: "+str(self.attack)+"\nWait: "+str(self.wait))
+    #For when the player picks up a pick
     def pickPick(self):
         self.amt_of_ap-=self.num_of_str
         self.amt_of_pick+=1
+    #For when the player picks up a key
     def pickKey(self):
         self.amt_of_ap-=self.num_of_dex
         self.amt_of_key += 1
+    #For when the player picks up a scroll
     def pickScroll(self):
         self.amt_of_ap-=self.num_of_int
         self.amt_of_scroll += 1
-    def breakBook(self):
+    #For when the player breaks the vorax book room
+    def breaksBook(self):
         self.amt_of_ap-=1
-    def breakGem(self):
+    #For when the player breaks the vorax gem room
+    def breaksGem(self):
         self.amt_of_ap-=1
-    def breakHeart(self):
+    #For when the player breaks the vorax heart room
+    def breaksHeart(self):
         self.amt_of_ap-=1
