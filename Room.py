@@ -13,7 +13,7 @@ If its a lock, boolean for whether or not the lock was broken
 2. when a card is clicked, be able to change orientation and position placed 
 """
 
-import os, pygame, random, Room as r
+import os, pygame, random, RoomTile as r
 
 
 class Room:
@@ -30,46 +30,47 @@ class Room:
     # load attributes
     def load(self):
 
-        AcidJets = r.Room("AcidJets", "green", ["north", "south"])
-        ArrowTrap = r.Room("ArrowTrap", "green", ["east, west, south"])
-        DarkSlime = r.Room("DarkSlime", "red", ["east", "south"])
-        DenOfSnakes = r.Room("DenOfSnakes", "green", ["north", "east", "south"])
-        Dragonling = r.Room("Dragonling", "red", ["north", "east", "south"])
-        FelKnight = r.Room("FelKnight", "red", ["north", "east", "south"])
-        FloatingStones = r.Room("FloatingStones", "green", ["north", "south", "east", "west"])
-        HallOfIllusion = r.Room("HallOfIllusion", "blue", ["east", "south"])
-        LaughingShadow = r.Room("LaughingShadow", "blue", ["north", "east", "west", "south"])
-        LavaLake = r.Room("LavaLake", "green", ["west", "south"]),
-        MindEater = r.Room("MindEater", "green", ["east", "west", "south"])
-        Minotaur = r.Room("Minotaur", "blue", ["north", "south", "east", "west"])
-        MimicChest = r.Room("MimicChest", "blue", ["south"])
-        OgreBrute = r.Room("OgreBrute", "red", ["west", "south"])
-        ParadoxPuzzle = r.Room("ParadoxPuzzle", "blue", ["north", "west", "south"])
-        PendulumBlades = r.Room("PendulumBlades", "green", ["north", "south"])
-        Psychomancer = r.Room("Psychomancer", "blue", ["north", "east", "west", "south"])
-        SkeletalGuards = r.Room("SkeletalGuards", "red", ["north", "south"])
-        SphynxsRiddle = r.Room("SphynxsRiddle", "blue", ["north", "south"])
-        SpikedPit = r.Room("SpikedPit", "green", ["north", "east", "south"])
-        VoraciousPlant = r.Room("VoraciousPlant", "red", ["north", "east", "west", "south"])
+        AcidJets = r.RoomTile("AcidJets", "green", ["north", "south"])
+        ArrowTrap = r.RoomTile("ArrowTrap", "green", ["east, west, south"])
+        DarkSlime = r.RoomTile("DarkSlime", "red", ["east", "south"])
+        DenOfSnakes = r.RoomTile("DenOfSnakes", "green", ["north", "east", "south"])
+        Dragonling = r.RoomTile("Dragonling", "red", ["north", "east", "south"])
+        FelKnight = r.RoomTile("FelKnight", "red", ["north", "east", "south"])
+        FloatingStones = r.RoomTile("FloatingStones", "green", ["north", "south", "east", "west"])
+        HallOfIllusion = r.RoomTile("HallOfIllusion", "blue", ["east", "south"])
+        LaughingShadow = r.RoomTile("LaughingShadow", "blue", ["north", "east", "west", "south"])
+        LavaLake = r.RoomTile("LavaLake", "green", ["west", "south"]),
+        MindEater = r.RoomTile("MindEater", "green", ["east", "west", "south"])
+        Minotaur = r.RoomTile("Minotaur", "blue", ["north", "south", "east", "west"])
+        MimicChest = r.RoomTile("MimicChest", "blue", ["south"])
+        OgreBrute = r.RoomTile("OgreBrute", "red", ["west", "south"])
+        ParadoxPuzzle = r.RoomTile("ParadoxPuzzle", "blue", ["north", "west", "south"])
+        PendulumBlades = r.RoomTile("PendulumBlades", "green", ["north", "south"])
+        Psychomancer = r.RoomTile("Psychomancer", "blue", ["north", "east", "west", "south"])
+        SkeletalGuards = r.RoomTile("SkeletalGuards", "red", ["north", "south"])
+        SphynxsRiddle = r.RoomTile("SphynxsRiddle", "blue", ["north", "south"])
+        SpikedPit = r.RoomTile("SpikedPit", "green", ["north", "east", "south"])
+        VoraciousPlant = r.RoomTile("VoraciousPlant", "red", ["north", "east", "west", "south"])
 
-        Blank = r.Room("Blank")
-        FireOfEidolon = r.Room("FireOfEidolon")
-        VoraxsHeart = r.Room("VoraxsHeart")
-        VoraxsFocus = r.Room("VoraxsFocus")
-        VoraxsKnowledge = r.Room("VoraxsKnowledge")
-        Vestibule = r.Room("Vestibule")
-        SecretPassageX = r.Room("SecretPassageX")
-        SecretPassageY = r.Room("SecretPassageY")
-        NewExit = r.Room("NewExit")
+        Blank = r.RoomTile("Blank")
+        FireOfEidolon = r.RoomTile("FireOfEidolon")
+        VoraxsHeart = r.RoomTile("VoraxsHeart")
+        VoraxsFocus = r.RoomTile("VoraxsFocus")
+        VoraxsKnowledge = r.RoomTile("VoraxsKnowledge")
+        Vestibule = r.RoomTile("Vestibule")
+        SecretPassageX = r.RoomTile("SecretPassageX")
+        SecretPassageY = r.RoomTile("SecretPassageY")
+        NewExit = r.RoomTile("NewExit")
 
+        # normal for now
+        self.all_rooms.append(Blank, FireOfEidolon, VoraxsFocus, VoraxsHeart, VoraxsKnowledge,
+                              AcidJets, ArrowTrap, DarkSlime, DenOfSnakes, Dragonling,
+                              FelKnight, FloatingStones, HallOfIllusion, LaughingShadow,
+                              LavaLake, MindEater, Minotaur, MimicChest, OgreBrute,
+                              ParadoxPuzzle, PendulumBlades, Psychomancer, SkeletalGuards,
+                              SphynxsRiddle, SpikedPit, VoraciousPlant)
 
-        #normal for now
-        self.current_deck.append(Blank, FireOfEidolon, VoraxsFocus, VoraxsHeart, VoraxsKnowledge,
-                                 AcidJets, ArrowTrap, DarkSlime, DenOfSnakes, Dragonling,
-                                 FelKnight, FloatingStones, HallOfIllusion, LaughingShadow,
-                                 LavaLake, MindEater, Minotaur, MimicChest, OgreBrute,
-                                 ParadoxPuzzle, PendulumBlades, Psychomancer, SkeletalGuards,
-                                 SphynxsRiddle, SpikedPit, VoraciousPlant)
+        self.current_deck = self.all_rooms
 
     # shuffles current deck of rooms
     def shuffle(self):
@@ -101,5 +102,6 @@ class Room:
         for key in self.all_rooms:
             if key not in self.void_deck:
                 self.current_deck.append(key)
+
 
 
