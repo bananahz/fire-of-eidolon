@@ -39,49 +39,6 @@ class RoomTile(pygame.sprite.Sprite):
         self.players = []
         self.banished = False
 
-    """def get_name(self):
-       return self.name
-
-   def get_type(self):
-       return self.type
-
-   def color(self):
-       return self.color
-
-   def doorways(self):
-       return self.doorways
-
-   def token(self):
-       return self.token
-
-   def add_cultist(self):
-       self.cultist = True
-
-   def has_cultist(self):
-       return self.cultist
-
-   def add_players(self, players):
-       self.players = players
-
-   def players(self, []):
-       return self.players
-
-   def set_banished(self):
-       self.banished = True
-
-   def banished(self):
-       return self.banished
-
-   def set_rotation(self, image, rotation):
-       # sprite rotation
-       return
-
-   def get_image(self):
-       return self.image
-
-   def rotation(self):
-       return self.rotation """
-
     def rotation(self):
         original = self.image
         self.image = pygame.transform.rotate(original, 90)
