@@ -8,9 +8,8 @@ If its a lock, boolean for whether or not the lock was broken
 -Also for rotation, maybe int rot = up; (up = 0(or 0 degrees), right = 1(or 90 degrees), down = 2(or 180 or 90*2)) 
  That way you could multiply a 90 degree rotation for the int number for the rotation
 -String name
-
 1. have rooms display in right corner, shuffled
-2. when a card is clicked, be able to change orientation and position placed 
+2. when a card is clicked, be able to change orientation and position placed
 """
 
 import os, pygame, random, RoomTile as r
@@ -18,7 +17,7 @@ import os, pygame, random, RoomTile as r
 
 class Room:
     scale = .4
-    all_rooms = {}
+    all_rooms = []
     current_deck = []  # normal mode
     void_deck = []
 
@@ -63,12 +62,12 @@ class Room:
         NewExit = r.RoomTile("NewExit")
 
         # normal for now
-        self.all_rooms.append(Blank, FireOfEidolon, VoraxsFocus, VoraxsHeart, VoraxsKnowledge,
-                              AcidJets, ArrowTrap, DarkSlime, DenOfSnakes, Dragonling,
-                              FelKnight, FloatingStones, HallOfIllusion, LaughingShadow,
-                              LavaLake, MindEater, Minotaur, MimicChest, OgreBrute,
-                              ParadoxPuzzle, PendulumBlades, Psychomancer, SkeletalGuards,
-                              SphynxsRiddle, SpikedPit, VoraciousPlant)
+        self.all_rooms = {"Blank": Blank , "FireOfEidolon":FireOfEidolon, "VoraxsFocus":VoraxsFocus, "VoraxsHeart":VoraxsHeart, "VoraxsKnowledge":VoraxsKnowledge,
+                              "AcidJets": AcidJets, "ArrowTrap":ArrowTrap, "DarkSlime":DarkSlime, "DenOfSnakes":DenOfSnakes, "Dragonling":Dragonling,
+                              "FelKnight":FelKnight, "FloatingStones":FloatingStones, "HallOfIllusion":HallOfIllusion, "LaughingShadow":LaughingShadow,
+                              "LavaLake":LavaLake, "MindEater":MindEater, "Minotaur":Minotaur, "MimicChest":MimicChest, "OgreBrute":OgreBrute,
+                              "ParadoxPuzzle":ParadoxPuzzle, "PendulumBlades":PendulumBlades, "Psychomacer":Psychomancer, "SkeletalGuards":SkeletalGuards,
+                              "SphynxsRiddle":SphynxsRiddle, "SpikedPit":SpikedPit, "VoraciousPlant":VoraciousPlant, "Vestibule":Vestibule}
 
         self.current_deck = self.all_rooms
 
@@ -102,6 +101,4 @@ class Room:
         for key in self.all_rooms:
             if key not in self.void_deck:
                 self.current_deck.append(key)
-
-
 
