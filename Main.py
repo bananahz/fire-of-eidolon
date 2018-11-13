@@ -1,5 +1,5 @@
 import os, sys
-import pygame
+import pygame, Game as g, MainFile as m
 from pygame.locals import *
 from tkinter import *
 
@@ -13,20 +13,7 @@ Import modules
 set up game( difficulty  ) 
 """
 
-pygame.init()
-screen = pygame.display.set_mode((800, 600))
-pygame.display.set_caption('Fire of Eidolon')
-pygame.mouse.set_visible(1)
 
-backgroundImage = pygame.image.load("Textures/intro.png").convert()
-backgroundImage = pygame.transform.scale(backgroundImage, (800, 600))
-screen.blit(backgroundImage, (0, 0))
-# background = pygame.Surface(screen.get_size())
-# background = background.convert()
-# background.fill((250,250,250))
-
-clock = pygame.time.Clock()
-done = False
 
 # if pygame.font:
 # font = pygame.font.Font(None, 50)
@@ -52,12 +39,37 @@ def load_image(name, colorkey=None):
 def load_sound(name):
     return
 
+def main():
+    pygame.init()
+    screen = pygame.display.set_mode((800, 600))
+    pygame.display.set_caption('Fire of Eidolon')
+    pygame.mouse.set_visible(1)
 
-while not done:
-    clock.tick(60)
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            done = True
+    backgroundImage = pygame.image.load("Textures/intro.png").convert()
+    backgroundImage = pygame.transform.scale(backgroundImage, (800, 600))
+    screen.blit(backgroundImage, (0, 0))
+    # background = pygame.Surface(screen.get_size())
+    # background = background.convert()
+    # background.fill((250,250,250))
+
+    clock = pygame.time.Clock()
+    done = False
+
+    game = g.Game()
+    graphics = m.MainFile
+
+    while not done:
+
+        done = game.process_events()
+
+        game.logic()
+
+        #graphics.update()
+
+        clock.tick(60)
 
 
-    pygame.display.flip()
+    pygame.quit()
+
+if __name__ == "__main__":
+    main()
