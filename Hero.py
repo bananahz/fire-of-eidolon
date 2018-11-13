@@ -60,12 +60,12 @@ class Hero(object):
         self.amt_of_ap-=1
     def getImage(self,name):
         if(name == "Aelfric" or name == "Cecelia" or name == "Cirrus"):
-            return pygame.image.load("Textures/Combat/"+name+".png")
+            return pygame.image.load("Textures/Heroes/Combat/"+name+".png")
         elif (name == "Kalistos" or name == "Tetemeko"):
-            return pygame.image.load("Textures/Movement/" + name + ".png")
+            return pygame.image.load("Textures/Heroes/Movement/" + name + ".png")
         elif (name == "Amelia" or name == "Daga" or name == "Sydney"):
-            return pygame.image.load("Textures/Room Control/" + name + ".png")
+            return pygame.image.load("Textures/Heroes/Room Control/" + name + ".png")
         elif (name == "Aveloc"):
-            return pygame.image.load("Textures/Specialist/Aveloc.png")
+            return pygame.image.load("Textures/Heroes/Specialist/Aveloc.png")
         elif (name == "Carver" or name == "Kaylana" or name == "Sirus"):
-            return pygame.image.load("Textures/Utility/" + name + ".png")
+            return pygame.image.load("Textures/Heroes/Utility/" + name + ".png")
