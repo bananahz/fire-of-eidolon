@@ -1,4 +1,6 @@
+import pygame
 class Hero(object):
+    pygame.init()
     amt_of_scroll = 0
     amt_of_key = 0
     amt_of_pick = 0
@@ -56,3 +58,14 @@ class Hero(object):
     #For when the player breaks the vorax heart room
     def breaksHeart(self):
         self.amt_of_ap-=1
+    def getImage(self,name):
+        if(name == "Aelfric" or name == "Cecelia" or name == "Cirrus"):
+            return pygame.image.load("Textures/Combat/"+name+".png")
+        elif (name == "Kalistos" or name == "Tetemeko"):
+            return pygame.image.load("Textures/Movement/" + name + ".png")
+        elif (name == "Amelia" or name == "Daga" or name == "Sydney"):
+            return pygame.image.load("Textures/Room Control/" + name + ".png")
+        elif (name == "Aveloc"):
+            return pygame.image.load("Textures/Specialist/Aveloc.png")
+        elif (name == "Carver" or name == "Kaylana" or name == "Sirus"):
+            return pygame.image.load("Textures/Utility/" + name + ".png")
