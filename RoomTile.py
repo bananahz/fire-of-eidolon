@@ -23,7 +23,7 @@ class RoomTile(pygame.sprite.Sprite):
     # for voraxs
     locked = False
 
-    def __init__(self, name, color="none", doorways=[]):
+    def __init__(self, name, color="none", doorways=["north", "east", "west", "south"]):
         # normal rooms
         super(RoomTile, self).__init__()
         self.image = pygame.image.load("Textures/Rooms/" + name + ".png")

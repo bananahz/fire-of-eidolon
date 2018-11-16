@@ -69,7 +69,12 @@ class Room:
                               "ParadoxPuzzle":ParadoxPuzzle, "PendulumBlades":PendulumBlades, "Psychomacer":Psychomancer, "SkeletalGuards":SkeletalGuards,
                               "SphynxsRiddle":SphynxsRiddle, "SpikedPit":SpikedPit, "VoraciousPlant":VoraciousPlant, "Vestibule":Vestibule}
 
-        self.current_deck = self.all_rooms
+        self.current_deck = [Blank, FireOfEidolon, VoraxsFocus, VoraxsHeart, VoraxsKnowledge,
+                             AcidJets, ArrowTrap, DarkSlime, DenOfSnakes, Dragonling,
+                             FelKnight, FloatingStones, HallOfIllusion, LaughingShadow,
+                             LavaLake, MindEater, Minotaur, MimicChest, OgreBrute,
+                             ParadoxPuzzle, PendulumBlades, Psychomancer, SkeletalGuards,
+                             SphynxsRiddle, SpikedPit, VoraciousPlant, Vestibule]
 
     # shuffles current deck of rooms
     def shuffle(self):
