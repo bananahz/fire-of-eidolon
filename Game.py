@@ -6,13 +6,14 @@ class Game:
     room_class = None
     map = []
     main_room = None
+    current_player = 0
 
     def __init__(self):
         self.room_class = r.Room()
         self.map = [[self.room_class.all_rooms.get("Vestibule")]]
         self.main_room = (0, 0)
 
-
+    #adds room tile to map
     def add_to_map(self, root_position, direction, room):
         if 0 <= root_position[0] < len(self.map) and 0 <= root_position[1] < len(self.map[0]):
 
@@ -57,7 +58,31 @@ class Game:
                 elif self.map[root_position[0]][root_position[1]+1] is None:
                     self.map[root_position[0]][root_position[1]+1] = room
                     print(self.map)
+        else:
+            return False
 
+    #removes tiles from map (not cards as well)
+    def remove_from_map(self, room):
+        for x in range(len(self.map)):
+            for l in range(len(self.map[x])):
+                if self.map[x][l] == room:
+                    self.map[x][l] = None
+                    return True
+        return False
+
+# subject to change
+    def change_player_turn(self, players):
+        if self.current_player+1 < len(players):
+            self.current_player+=1
+        else:
+            self.current_player = 0
+
+    def status(self):
+        
+
+
+    def run_game(self):
+        while()
 
 
 
