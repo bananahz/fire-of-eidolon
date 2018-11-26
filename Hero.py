@@ -4,9 +4,10 @@ class Hero(object):
     amt_of_scroll = 0
     amt_of_key = 0
     amt_of_pick = 0
-    def __init__(self,name,amt_of_ap,num_of_str,num_of_dex,num_of_int,move,explore,exchange,attack,wait):
+    def __init__(self,name,type,amt_of_ap,num_of_str,num_of_dex,num_of_int,move,explore,exchange,attack,wait):
         #amt used for attributes that change, num used for attributes that dont change
         self.name = name
+        self.type = type
         self.amt_of_ap = amt_of_ap
         self.num_of_str = num_of_str
         self.num_of_dex = num_of_dex
@@ -58,14 +59,6 @@ class Hero(object):
     #For when the player breaks the vorax heart room
     def breaksHeart(self):
         self.amt_of_ap-=1
-    def getImage(self,name):
-        if(name == "Aelfric" or name == "Cecelia" or name == "Cirrus"):
-            return pygame.image.load("Textures/Heroes/Combat/"+name+".png")
-        elif (name == "Kalistos" or name == "Tetemeko"):
-            return pygame.image.load("Textures/Heroes/Movement/" + name + ".png")
-        elif (name == "Amelia" or name == "Daga" or name == "Sydney"):
-            return pygame.image.load("Textures/Heroes/Room Control/" + name + ".png")
-        elif (name == "Aveloc"):
-            return pygame.image.load("Textures/Heroes/Specialist/Aveloc.png")
-        elif (name == "Carver" or name == "Kaylana" or name == "Sirus"):
-            return pygame.image.load("Textures/Heroes/Utility/" + name + ".png")
+    def getImage(self, name):
+        return pygame.image.load("Textures/Heroes/Hero/"+name+".jpg")
+    #Upload the new images sets to github and tell everyone to replace their current heroes file with this one
