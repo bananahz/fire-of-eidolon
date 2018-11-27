@@ -7,6 +7,8 @@ class Game:
     map = []
     main_room = None
     current_player = 0
+    # temporary
+    difficulty = None
 
     def __init__(self):
         self.room_class = r.Room()
@@ -78,11 +80,11 @@ class Game:
             self.current_player = 0
 
     def status(self):
-        
-
+        if
 
     def run_game(self):
-        while()
+        while(status() == 1):
+
 
 
 
