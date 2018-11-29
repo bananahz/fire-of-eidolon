@@ -1,10 +1,13 @@
 import pygame, Hero as h
 
 
-class Player(pygame.sprite.Sprite):
+class Player():
 
-    def __init__(self, hero_name):
-        self.hero = h.Hero.getImage(hero_name)
+    def __init__(self, hero):
+        self.hero = hero
+
+    #def __init__(self, hero_name):
+        #self.hero = h.Hero.getImage(hero_name)
         # rect
 
     def update(self):
