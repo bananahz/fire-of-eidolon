@@ -24,7 +24,7 @@ class Room:
     def __init__(self):
         pygame.init()
         self.load()
-        self.shuffle()
+        #self.shuffle()
 
     # load attributes
     def load(self):
@@ -38,7 +38,7 @@ class Room:
         FloatingStones = r.RoomTile("FloatingStones", "green", ["north", "south", "east", "west"])
         HallOfIllusion = r.RoomTile("HallOfIllusion", "blue", ["east", "south"])
         LaughingShadow = r.RoomTile("LaughingShadow", "blue", ["north", "east", "west", "south"])
-        LavaLake = r.RoomTile("LavaLake", "green", ["west", "south"]),
+        LavaLake = r.RoomTile("LavaLake", "green", ["west", "south"])
         MindEater = r.RoomTile("MindEater", "green", ["east", "west", "south"])
         Minotaur = r.RoomTile("Minotaur", "blue", ["north", "south", "east", "west"])
         MimicChest = r.RoomTile("MimicChest", "blue", ["south"])
@@ -60,6 +60,7 @@ class Room:
         SecretPassageX = r.RoomTile("SecretPassageX")
         SecretPassageY = r.RoomTile("SecretPassageY")
         NewExit = r.RoomTile("NewExit")
+        BackOfCard = r.RoomTile("BackOfCard")
 
         # normal for now
         self.all_rooms = {"Blank": Blank , "FireOfEidolon":FireOfEidolon, "VoraxsFocus":VoraxsFocus, "VoraxsHeart":VoraxsHeart, "VoraxsKnowledge":VoraxsKnowledge,
@@ -67,14 +68,14 @@ class Room:
                               "FelKnight":FelKnight, "FloatingStones":FloatingStones, "HallOfIllusion":HallOfIllusion, "LaughingShadow":LaughingShadow,
                               "LavaLake":LavaLake, "MindEater":MindEater, "Minotaur":Minotaur, "MimicChest":MimicChest, "OgreBrute":OgreBrute,
                               "ParadoxPuzzle":ParadoxPuzzle, "PendulumBlades":PendulumBlades, "Psychomacer":Psychomancer, "SkeletalGuards":SkeletalGuards,
-                              "SphynxsRiddle":SphynxsRiddle, "SpikedPit":SpikedPit, "VoraciousPlant":VoraciousPlant, "Vestibule":Vestibule}
+                              "SphynxsRiddle":SphynxsRiddle, "SpikedPit":SpikedPit, "VoraciousPlant":VoraciousPlant, "Vestibule":Vestibule, "BackOfCard":BackOfCard}
 
-        self.current_deck = [Blank, FireOfEidolon, VoraxsFocus, VoraxsHeart, VoraxsKnowledge,
+        self.current_deck = [FireOfEidolon, VoraxsFocus, VoraxsHeart, VoraxsKnowledge,
                              AcidJets, ArrowTrap, DarkSlime, DenOfSnakes, Dragonling,
                              FelKnight, FloatingStones, HallOfIllusion, LaughingShadow,
                              LavaLake, MindEater, Minotaur, MimicChest, OgreBrute,
                              ParadoxPuzzle, PendulumBlades, Psychomancer, SkeletalGuards,
-                             SphynxsRiddle, SpikedPit, VoraciousPlant, Vestibule]
+                             SphynxsRiddle, SpikedPit, VoraciousPlant]
 
     # shuffles current deck of rooms
     def shuffle(self):
