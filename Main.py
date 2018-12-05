@@ -70,6 +70,29 @@ def main():
 
 
     pygame.quit()
+    
+hc = HeroesCards.HeroesCards
+    heroes = hc.HeroList  # need to change to list of players
+
+    card_scale = .6
+    card_width = int(1149 * card_scale)
+    card_height = int(749 * card_scale)
+
+    turn = "Cleric"  # test value
+
+    def draw_hero_list():
+        mouse = pygame.mouse.get_pos()
+        font = pygame.font.Font('freesansbold.ttf', 8)
+        pygame.draw.rect(screen, (0, 0, 0), (20, 20, 60, 300))
+        for i in range(len(heroes)):
+            if Rect(25, i * 50 + 35, 40, 40).collidepoint(mouse):
+                screen.blit(pygame.transform.scale(pygame.image.load("Textures/Heroes/" + heroes[i].type + ".jpg"),
+                                                   (card_width, card_height)), [100, i * 50 + 35])
+            if heroes[i].type == turn:
+                pygame.draw.rect(screen, (100, 100, 100), (20, i * 50 + 25, 60, 50))
+            screen.blit(pygame.transform.scale(pygame.image.load("Textures/CharacterImages/" + heroes[i].type + ".png"),
+                                               (40, 40)), [25, i * 50 + 35])
+            screen.blit(font.render(heroes[i].type, True, (255, 255, 255)), [25, i * 50 + 28])
 
 if __name__ == "__main__":
     main()
