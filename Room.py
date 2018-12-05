@@ -24,7 +24,7 @@ class Room:
     def __init__(self):
         pygame.init()
         self.load()
-        #self.shuffle()
+        self.shuffle()
 
     # load attributes
     def load(self):
