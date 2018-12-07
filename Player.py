@@ -2,15 +2,7 @@ import pygame, Hero as h
 
 
 class Player():
-
-    def __init__(self, hero):
+    def __init__(self, hero, pos):
         self.hero = hero
-
-    #def __init__(self, hero_name):
-        #self.hero = h.Hero.getImage(hero_name)
-        # rect
-
-    def update(self):
-        pos = pygame.mouse.get_pos()
-        self.rect.x = pos[0]
-        self.rect.y = pos[1]
+        self.pos = pos
+    #def
