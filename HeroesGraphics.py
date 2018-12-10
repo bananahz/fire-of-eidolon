@@ -226,7 +226,7 @@ class HeroesGraphics():
                                         for x in range(len(Hero_List)):
                                             if Loaded_Image_List[x] == taken_image:
                                                 Chosen_Hero_Dict['Player '+str(run_number)] = p.Player(Hero_List[x], (0,0))
-                                                print (Chosen_Hero_Dict['Player '+str(run_number)].hero.name)
+                                                #print (Chosen_Hero_Dict['Player '+str(run_number)].hero.name)
                                                 Chosen_Hero_Image_List.append(Loaded_Image_List[x])
                                                 Hero_List.pop(x)
                                         Loaded_Image_List.remove(taken_image)
@@ -246,6 +246,6 @@ class HeroesGraphics():
                                     screen.blit(my_font.render('Player ' + str(x + 1) + ":", False, (255, 255, 255)),((150 + x * 350)-1050, 300))
                                     screen.blit(Chosen_Hero_Image_List[x],((280 + x * 350)-1050, 290))
                             screen.blit(my_font.render("Chosen Difficulty: "+chosen_dif, False, (255, 255, 255)),(500, 500))
-                clock.tick(60)
-                pg.display.update()
+            clock.tick(60)
+            pg.display.update()
         return (Chosen_Hero_Dict, chosen_dif)
