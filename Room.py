@@ -30,10 +30,10 @@ class Room:
     def load(self):
 
         AcidJets = r.RoomTile("AcidJets", "green", ["north", "south"])
-        ArrowTrap = r.RoomTile("ArrowTrap", "green", ["east, west, south"])
+        ArrowTrap = r.RoomTile("ArrowTrap", "green", ["east", "west", "south"])
         DarkSlime = r.RoomTile("DarkSlime", "red", ["east", "south"])
         DenOfSnakes = r.RoomTile("DenOfSnakes", "green", ["north", "east", "south"])
-        Dragonling = r.RoomTile("Dragonling", "red", ["north", "east", "south"])
+        Dragonling = r.RoomTile("Dragonling", "red", ["north", "west", "south"])
         FelKnight = r.RoomTile("FelKnight", "red", ["north", "east", "south"])
         FloatingStones = r.RoomTile("FloatingStones", "green", ["north", "south", "east", "west"])
         HallOfIllusion = r.RoomTile("HallOfIllusion", "blue", ["east", "south"])
@@ -52,10 +52,10 @@ class Room:
         VoraciousPlant = r.RoomTile("VoraciousPlant", "red", ["north", "east", "west", "south"])
 
         Blank = r.RoomTile("Blank")
-        FireOfEidolon = r.RoomTile("FireOfEidolon")
-        VoraxsHeart = r.RoomTile("VoraxsHeart")
-        VoraxsFocus = r.RoomTile("VoraxsFocus")
-        VoraxsKnowledge = r.RoomTile("VoraxsKnowledge")
+        FireOfEidolon = r.RoomTile("FireOfEidolon" , doorways = ["south"])
+        VoraxsHeart = r.RoomTile("VoraxsHeart" , doorways = ["south"])
+        VoraxsFocus = r.RoomTile("VoraxsFocus" , doorways = ["south"])
+        VoraxsKnowledge = r.RoomTile("VoraxsKnowledge", doorways = ["south"])
         Vestibule = r.RoomTile("Vestibule")
         SecretPassageX = r.RoomTile("SecretPassageX")
         SecretPassageY = r.RoomTile("SecretPassageY")

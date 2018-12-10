@@ -26,6 +26,7 @@ class RoomTile(pygame.sprite.Sprite):
     def __init__(self, name, color="none", doorways=["north", "east", "west", "south"]):
         # normal rooms
         super(RoomTile, self).__init__()
+        self.name = name
         self.image = pygame.image.load("Textures/Rooms/" + name + ".png")
         self.locked = False
         self.color = color
