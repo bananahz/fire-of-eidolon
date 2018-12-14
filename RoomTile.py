@@ -38,7 +38,7 @@ class RoomTile(pygame.sprite.Sprite):
 
     def rotation(self):
         original = self.image
-        self.image = pygame.transform.rotate(original, 90)
+        self.image = pygame.transform.rotate(original, 270)
         for x in range (len(self.doorways)) :
             if self.doorways[x] == "north" :
                 self.doorways[x] = "east"
