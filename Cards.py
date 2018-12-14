@@ -5,6 +5,7 @@ class Cards:
     scale = .4
     all_cards = {}
     current_deck = []
+    showing_deck = []
     void_deck = []
 
     def __init__(self):
@@ -21,7 +22,8 @@ class Cards:
                 self.all_cards[name[:len(name) - 4]] = pygame.transform.scale(image,
                     (int(image.get_size()[0] * self.scale),
                      int(image.get_size()[1] * self.scale)))
-                self.current_deck.append(name[:len(name) - 4])
+                if name != "RitualCardBack.png":
+                    self.current_deck.append(name[:len(name) - 4])
 
     #shuffles current deck of cards
     def shuffle(self):
