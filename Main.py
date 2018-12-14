@@ -314,6 +314,84 @@ def draw_map():
                 #if len(game.map[y][x].players) > 0:
                  #   for l in range(len(game.map[y][x].players)):
     card_draw()
+    
+    
+
+button_list = []
+font = pygame.font.Font('freesansbold.ttf', 20)
+
+button_image = pygame.image.load("Textures/RPG_GUI_v1.png").convert_alpha()
+
+cropped = pygame.Surface((291, 62))
+cropped.blit(button_image, (0, 0), (10, 123, 291, 62))
+cropped = pygame.transform.scale(cropped, (int((291 / 2)), int((62 / 2))))
+
+move = pygame.Surface((291, 62), pygame.SRCALPHA, 32).convert_alpha()
+move.blit(cropped, (0, 0), (10, 123, int((291 / 2)), int((62 / 2))))
+
+explore = pygame.Surface((291, 62), pygame.SRCALPHA, 32).convert_alpha()
+explore.blit(cropped, (0, 0), (10, 123, int((291 / 2)), int((62 / 2))))
+
+exchange = pygame.Surface((291, 62), pygame.SRCALPHA, 32).convert_alpha()
+exchange.blit(cropped, (0, 0), (10, 123, int((291 / 2)), int((62 / 2))))
+
+attack = pygame.Surface((291, 62), pygame.SRCALPHA, 32).convert_alpha()
+attack.blit(cropped, (0, 0), (10, 123, int(291 / 2), int((62 / 2))))
+
+wait = pygame.Surface((291, 62), pygame.SRCALPHA, 32).convert_alpha()
+wait.blit(cropped, (0, 0), (10, 123, int((291 / 2)), int((62 / 2))))
+
+relic = pygame.Surface((291, 62), pygame.SRCALPHA, 32).convert_alpha()
+relic.blit(cropped, (0, 0), (10, 123, int((291 / 2)), int((62 / 2))))
+
+
+def button_events():  # dimension is (x,y,width,height)
+
+    global button_list
+    global cropped
+    global font
+    global move
+    global exchange
+    global explore
+    global attack
+    global wait
+    global relic
+
+    screen.blit(draw_b(relic, "Relic", 100, 520), (100, 520))
+    screen.blit(draw_b(move, "Move", 300, 520), (300, 520))
+    screen.blit(draw_b(explore, "Explore", 500, 520), (500, 520))
+    screen.blit(draw_b(exchange, "Exchange", 100, 565), (100, 565))
+    screen.blit(draw_b(attack, "Attack", 300, 565), (300, 565))
+    screen.blit(draw_b(wait, "Wait", 500, 565), (500, 565))
+
+    button_list = [("Move", move.get_rect().move(300, 520)), ("Explore", explore.get_rect().move(500, 520)),
+                   ("Exchange", exchange.get_rect().move(100, 565)), ("Attack", attack.get_rect().move(300, 565)),
+                   ("Wait", wait.get_rect().move(500, 565)), ("Relic", relic.get_rect().move(100, 520))]
+
+
+def button_event_manager(x, y, event):
+    global button_list
+    global cropped
+    global font
+    global move
+    global exchange
+    global explore
+    global attack
+    global wait
+    global relic
+    for i in range(len(button_list)):
+        if event.type == pygame.MOUSEBUTTONDOWN and button_list[i][1].collidepoint((x,y)):
+            # game.player_actions(button_list[i][0])
+            print(button_list[i][0])
+
+def draw_b(button, text, x, y):  # dimension is (x,y,width,height)
+    button = button
+    font = pygame.font.Font('freesansbold.ttf', 20)
+    text_surf = font.render(text, False, (0, 0, 0))
+    text_rect = text_surf.get_rect(center=((int((291 / 2)) / 2, int((62 / 2)) / 2)))
+    button.blit(text_surf, text_rect)
+    screen.blit(cropped, (x, y))
+    return button
 
 
 def main():
@@ -331,6 +409,7 @@ def main():
                 interact_button(False)
             else:
                 event_manager_map(mouse_x, mouse_y, event)
+                button_event_manager(mouse_x, mouse_y, event) 
 
         if not intro:
             screen.blit(backgroundImage, (0, 0))
