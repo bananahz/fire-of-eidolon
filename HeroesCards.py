@@ -48,3 +48,5 @@ class HeroesCards():
                 tokens.state_of_book = tokens.book
     def getImage(name):
         return pygame.image.load("Textures/Heroes/Hero/"+name+".jpg").convert()
+    def getToken(name):
+        return pygame.image.load("Textures/Tokens/"+name+".png").convert()
