@@ -325,18 +325,18 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
-
             if intro:
                 if event.type == pygame.MOUSEBUTTONUP:
                     interact_button(True)
                 interact_button(False)
             else:
                 event_manager_map(mouse_x, mouse_y, event)
-            if h:
-                draw_hero_list()
+
         if not intro:
             screen.blit(backgroundImage, (0, 0))
             draw_map()
+            draw_hero_list()
+            run_card_graphics()
         #hg.hero_Graphics()
         # print(heroesGraphics.hero_Graphics()[0])
         # print(heroesGraphics.hero_Graphics()[1])
