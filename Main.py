@@ -416,6 +416,7 @@ def main():
             draw_map()
             draw_hero_list()
             run_card_graphics()
+            button_events()
         #hg.hero_Graphics()
         # print(heroesGraphics.hero_Graphics()[0])
         # print(heroesGraphics.hero_Graphics()[1])
