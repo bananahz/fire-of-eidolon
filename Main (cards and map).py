@@ -447,6 +447,7 @@ def main():
                 interact_button(False)
             else:
                 event_manager_map(mouse_x, mouse_y, event)
+                button_event_manager(mouse_x, mouse_y, event)
                 event_cards(event)
 
         if not intro:
@@ -454,6 +455,7 @@ def main():
             draw_map()
             run_card_graphics()
             draw_hero_list()
+            button_events()
 
         #hg.hero_Graphics()
         # print(heroesGraphics.hero_Graphics()[0])
