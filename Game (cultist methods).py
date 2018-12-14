@@ -39,34 +39,48 @@ class Game:
                 self.card_class.showing_deck = []
                 self.difficulty_level.go_up()
 
-    """
-    def player_actions(self, player, action, token):
-        xPos = 0
-        yPos = 0
-        for x in range(len(self.map[0])):
-            for i in range(len(self.map[1])):
-                if self.map[x][i].players.contains(player):
-                    current_tile = self.map[x][i]
-                    xPos = x
-                    yPos = i
+   def player_actions(self, action):
+    xPos = 0
+    yPos = 0
+    current_tile = self.map[0][0]
 
-        if self.current_player.amt_of_ap > 0:
-            if action == 'w':
-                if yPos - 1 > -1:
-                    self.map[xPos][yPos - 1].players.append(self.current_player)
-            if action == 'a':
-                if xPos - 1 > -1:
-                    self.map[xPos - 1][yPos].players.append(self.current_player)
-            if action == 's':
-                if yPos + 1 < len(self.map[1]):
-                    self.map[xPos][yPos + 1].players.append(self.current_player)
-            if action == 'd':
-                if xPos + 1 < len(self.map[0]):
-                    self.map[xPos + 1][yPos].players.append(self.current_player)
-
+    for x in range(len(self.map)):
+        for i in range(len(self.map[0])):
+            print("current player: " + str(self.current_player.name))
+            print("current tile: " + str(self.map[x][i].name))
+            print("players_list on tile: " + str(self.map[x][i].players))
+            if self.current_player in self.map[x][i].players:
+                current_tile = self.map[x][i]
+                xPos = x
+                yPos = i
+    if self.current_player.amt_of_ap > 0:
+        if action == 'w':
+            if yPos - 1 > -1:
+                self.map[xPos][yPos].players.remove(self.current_player)
+                self.map[xPos][yPos - 1].players.append(self.current_player)
+                self.current_player.amt_of_ap -= 1
+        if action == 'a':
+            if xPos - 1 > -1:
+                self.map[xPos][yPos].players.remove(self.current_player)
+                self.map[xPos - 1][yPos].players.append(self.current_player)
+                self.current_player.amt_of_ap -= 1
+        if action == 's':
+            if yPos + 1 < len(self.map[0]):
+                self.map[xPos][yPos].players.remove(self.current_player)
+                self.map[xPos][yPos + 1].players.append(self.current_player)
+                self.current_player.amt_of_ap -= 1
+        if action == 'd':
+            if xPos + 1 < len(self.map):
+                self.map[xPos][yPos].players.remove(self.current_player)
+                self.map[xPos + 1][yPos].players.append(self.current_player)
+                self.current_player.amt_of_ap -= 1
+        if action == 'Wait':
+            self.current_player.amt_of_ap -= 1
+    elif self.current_player.amt_of_ap == 0:
+        self.change_player_turn(self.player_list)
         # repeat for other keys
-        if action == "pick_token" and current_tile.token != None:
-            if current_tile.token == "green token":
+        """if action == "pick_token" and self.map[xPos][yPos].token != None:
+            if self.map[xPos][yPos].token == "green token":
                 return
                 if self.current_player.amt_of_ap > 0:
             if action == 'w':
@@ -95,8 +109,8 @@ class Game:
             if action == "destroy_relic":
                 pass
             if action == "retrieve_fire":
-                pass
-"""
+                pass"""
+    # adds room tile to map
 
     def add_cultist(self, name_of_room):
         for y in self.map:
