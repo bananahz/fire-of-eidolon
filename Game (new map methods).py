@@ -60,13 +60,13 @@ class Game:
     # placement of tile is valid and direction from tile
     def place_valid(self, pos, room):
         if (0 <= pos[0] < len(self.map) and 0 <= pos[1] < len(self.map[0]) and self.map[pos[0]][pos[1]] is None) or ((len(self.map)<=pos[0] or pos[0]<0) or (len(self.map[0])<=pos[1] or pos[1]<0)):
-            if pos[0]+1 < len(self.map) and 0 <= pos[1] < len(self.map[0]) and self.map[pos[0]+1][pos[1]].doorways.count("north")>0 and room.doorways.count("south")>0:
+            if pos[0]+1 < len(self.map) and 0 <= pos[1] < len(self.map[0]) and self.map[pos[0]+1][pos[1]] is not None and self.map[pos[0]+1][pos[1]].doorways.count("north")>0 and room.doorways.count("south")>0:
                 return True, "north"
-            if pos[0]-1 >= 0 and 0 <= pos[1] < len(self.map[0]) and self.map[pos[0]-1][pos[1]].doorways.count("south")>0 and room.doorways.count("north")>0:
+            if pos[0]-1 >= 0 and 0 <= pos[1] < len(self.map[0]) and self.map[pos[0]-1][pos[1]] is not None and self.map[pos[0]-1][pos[1]].doorways.count("south")>0 and room.doorways.count("north")>0:
                 return True, "south"
-            if 0 <= pos[1]+1 < len(self.map[0]) and 0 <= pos[0] < len(self.map)and self.map[pos[0]][pos[1]+1].doorways.count("west")>0 and room.doorways.count("east")>0:
+            if 0 <= pos[1]+1 < len(self.map[0]) and 0 <= pos[0] < len(self.map) and self.map[pos[0]][pos[1]+1] is not None and self.map[pos[0]][pos[1]+1].doorways.count("west")>0 and room.doorways.count("east")>0:
                 return True, "west"
-            if 0 <= pos[1]-1 < len(self.map[0]) and 0 <= pos[0] < len(self.map) and self.map[pos[0]][pos[1]-1].doorways.count("east")>0 and room.doorways.count("west")>0:
+            if 0 <= pos[1]-1 < len(self.map[0]) and 0 <= pos[0] < len(self.map) and self.map[pos[0]][pos[1]-1] is not None and self.map[pos[0]][pos[1]-1].doorways.count("east")>0 and room.doorways.count("west")>0:
                 return True, "east"
             return False, "none"
         else:
