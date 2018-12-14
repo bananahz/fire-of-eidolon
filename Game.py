@@ -42,6 +42,34 @@ class Game:
         if action == "pick_token" and current_tile.token != None:
             if current_tile.token == "green token":
                 return 
+                if self.current_player.amt_of_ap > 0:
+            if action == 'w':
+                if self.map[yPos + 1] > -1:
+                    self.map[xPos][yPos + 1].players.append(player)
+
+        # repeat for other keys
+            if action == "collect_token" and current_tile.token != None:
+                if current_tile.token == "key" and #(4 - self.current_player.amt_of_ap):
+                    self.current_player
+
+            if action == 'explore':
+                pass
+                #add new room if possible
+            if action == 'attack' and current_tile.cultist != 0:
+                current_tile.cultist -= 1
+            if action == 'exchange' and len(current_tile.players) > 1:
+                pass
+                #add ui to exchange tokens
+            if action == 'skill':
+                #do player stuff
+                pass
+            if action == 'wait':
+                #start cultist phase
+                pass
+            if action == "destroy_relic":
+                pass
+            if action == "retrieve_fire":
+                pass
 
     #adds room tile to map
     def add_to_map(self, root_position, direction, room):
