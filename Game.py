@@ -34,8 +34,17 @@ class Game:
 
         if self.current_player.amt_of_ap > 0:
             if action == 'w':
-                if self.map[yPos + 1] > -1:
-                    self.map[xPos][yPos + 1].players.append(player)
+                if yPos - 1 > -1:
+                    self.map[xPos][yPos - 1].players.append(self.current_player)
+            if action == 'a':
+                if xPos - 1 > -1:
+                    self.map[xPos - 1][yPos].players.append(self.current_player)
+            if action == 's':
+                if yPos + 1 < len(self.map[1]):
+                    self.map[xPos][yPos + 1].players.append(self.current_player)
+            if action == 'd':
+                if xPos + 1 < len(self.map[0]):
+                    self.map[xPos + 1][yPos].players.append(self.current_player)
 
 
         # repeat for other keys
